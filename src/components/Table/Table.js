@@ -48,7 +48,7 @@ const Table = ({ title, data, columns, options}) => {
         title={title}
         data={data}
         columns={columns}
-        options={{ search: true, paging: false }}
+        options={options}
         cellEditable={{
         onCellEditApproved: (newValue, oldValue, rowData, columnDef) => {
           return new Promise((resolve, reject) => {
@@ -63,14 +63,14 @@ const Table = ({ title, data, columns, options}) => {
           // isEditHidden: rowData => rowData.name === 'x',
           // isDeletable: rowData => rowData.name === 'b', // only name(b) rows would be deletable,
           // isDeleteHidden: rowData => rowData.name === 'y',
-          onBulkUpdate: changes => 
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                /* setData([...data, newData]); */
+          // onBulkUpdate: changes => 
+          //   new Promise((resolve, reject) => {
+          //     setTimeout(() => {
+          //       /* setData([...data, newData]); */
 
-                resolve();
-              }, 1000);
-            }),
+          //       resolve();
+          //     }, 1000);
+          //   }),
           onRowAddCancelled: rowData => console.log('Row adding cancelled'),
           onRowUpdateCancelled: rowData => console.log('Row editing cancelled'),
           onRowAdd: newData =>

@@ -3,15 +3,32 @@ import TopMenu from './components/TopMenu/TopMenu';
 import NoviKlijent from './components/NoviKlijent/NoviKlijent';
 import ListaKlijenata from './components/ListaKlijenata/ListaKlijenata';
 import Zakazivanje from './components/Zakazivanje/Zakazivanje';
+
+import NoviTretman from './components/NoviTretman/NoviTretman';
+import { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Button, ButtonGroup } from 'react-bootstrap';
+// import { Button, ButtonGroup } from 'react-bootstrap';
 import './App.css';
 
 function App() {
+
+    const [singleViewVisibility, setSingleViewVisibility] = useState(0);
+
+    // make wrapper function to give child
+    const wrappersetSingleViewVisibility = useCallback(val => {
+        setSingleViewVisibility(val);
+    }, [setSingleViewVisibility]);
+
     return (
         <Router>
 
         <div className="App">
+
+            {singleViewVisibility ? <NoviTretman
+                parentState ={singleViewVisibility}
+                parentStateSetter ={wrappersetSingleViewVisibility}
+            /> : ''}
+
             <Header/>
 
             <Switch>
@@ -19,7 +36,10 @@ function App() {
                     <NoviKlijent/>
                 </Route>
                 <Route path="/listaKlijenata">
-                    <ListaKlijenata/>
+                    <ListaKlijenata
+                        parentState ={singleViewVisibility}
+                        parentStateSetter ={wrappersetSingleViewVisibility}
+                    />
                 </Route>
                 <Route path="/zakazivanje">
                     <Zakazivanje/>
