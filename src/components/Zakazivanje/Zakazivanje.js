@@ -6,28 +6,84 @@ const Zakazivanje = () => {
 
 	const data = [
 		{
-			"vreme" : "8:00",
+			"vreme" 		: "8:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "-",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		},
 		{
-			"vreme" : "9:00",
+			"vreme" 		: "9:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "Ilija",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		},
 		{
-			"vreme" : "10:00",
+			"vreme" 		: "10:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "-",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		},
 		{
-			"vreme" : "11:00",
+			"vreme" 		: "11:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "-",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		},
 		{
-			"vreme" : "12:00",
+			"vreme" 		: "12:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "-",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		},
 		{
-			"vreme" : "13:00",
+			"vreme" 		: "13:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "-",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		},
 		{
-			"vreme" : "14:00",
+			"vreme" 		: "14:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "-",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		},
 		{
-			"vreme" : "15:00",
+			"vreme" 		: "15:00",
+			"ponedeljak" 	: "-",
+			"utorak" 		: "-",
+			"sreda" 		: "-",
+			"cetvrtak" 		: "-",
+			"petak" 		: "-",
+			"subota" 		: "-",
+			"nedelja" 		: "-",
 		}
 	];
 
@@ -35,10 +91,11 @@ const Zakazivanje = () => {
 		{
 		  	title: "",
 		  	field: "vreme",
+			editable: "never"
 		},
 		{
 		  	title: "PON",
-		  	field: "ponedeljan",
+		  	field: "ponedeljak",
 		},
 		{
 		  	title: "UTO",
@@ -76,7 +133,7 @@ const Zakazivanje = () => {
 	const title = "Nedelja 23.08 - 29.08.2021";
 
 	return (
-		<div className="w-60">
+		<div className="w-80">
 			<h2>Tabel goes here</h2>
 			<Table title={title} data={data} columns={columns} options={options}/>
 		</div>

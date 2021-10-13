@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import MaterialTable from 'material-table'
 import { forwardRef } from 'react';
 
@@ -17,6 +17,8 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+
+import { ControlCameraOutlined } from '@material-ui/icons';
 
 const Table = ({ title, data, columns, options}) => {
 
@@ -41,24 +43,48 @@ const Table = ({ title, data, columns, options}) => {
   };
 
   return (
-      <div>
-        <MaterialTable
-          title={title}
-          data={data}
-          columns={columns}
-          options={{ search: true, paging: false }}
-          cellEditable={{
-          onCellEditApproved: (newValue, oldValue, rowData, columnDef) => {
-            return new Promise((resolve, reject) => {
-                console.log('newValue: ' + newValue);
-                setTimeout(resolve, 4000);
-              });
-            }
-          }}
-          icons={tableIcons}
-        />
-      </div>
-    )
+    <div>
+      <MaterialTable
+        title={title}
+        data={data}
+        columns={columns}
+        options={{ search: true, paging: false }}
+        cellEditable={{
+        onCellEditApproved: (newValue, oldValue, rowData, columnDef) => {
+          return new Promise((resolve, reject) => {
+              console.log('newValue: ' + newValue);
+              setTimeout(resolve, 4000);
+            });
+          }
+        }}
+        icons={tableIcons}
+        editable={{
+          // isEditable: rowData => rowData.name === 'a', // only name(a) rows would be editable
+          // isEditHidden: rowData => rowData.name === 'x',
+          // isDeletable: rowData => rowData.name === 'b', // only name(b) rows would be deletable,
+          // isDeleteHidden: rowData => rowData.name === 'y',
+          onBulkUpdate: changes => 
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                /* setData([...data, newData]); */
+
+                resolve();
+              }, 1000);
+            }),
+          onRowAddCancelled: rowData => console.log('Row adding cancelled'),
+          onRowUpdateCancelled: rowData => console.log('Row editing cancelled'),
+          onRowAdd: newData =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                /* setData([...data, newData]); */
+
+                resolve();
+              }, 1000);
+            }),
+        }}
+      />
+    </div>
+  )
 }
 
 export default Table;
