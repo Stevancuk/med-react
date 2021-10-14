@@ -47,7 +47,7 @@ const ListaKlijenata = ({ logo, naslov, parentStateSetter}) => {
 
 	const columns = [
 		{
-		  	title		: "",
+		  	title		: "ID",
 		  	field		: "id",
 			editable	: "never"
 		},
