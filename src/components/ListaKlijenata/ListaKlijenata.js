@@ -2,6 +2,7 @@
 import React from 'react';
 import Table from '../Table/Table';
 import { useState, useCallback, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Button } from 'react-bootstrap';
 
@@ -21,25 +22,25 @@ const ListaKlijenata = ({ logo, naslov, parentStateSetter}) => {
 	const data = [
 		{
 			"id" 		: "1",
-			"punoIme" 	: "Pedja Pavlovic",
+			"punoIme" 	: <Link className="klijentLink" userId="1" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Pedja Pavlovic</Link>,
 			"tel" 		: "066/412-683",
 			"tretman" 	: <Button variant="outline-primary" value="1" onClick={onUsersButtonClick}>Dodaj Tretman</Button>
 		},
 		{
 			"id" 		: "2",
-			"punoIme" 	: "Ilija Panajotovic",
+			"punoIme" 	: <Link className="klijentLink" userId="2" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Ilija Panajotovic</Link>,
 			"tel" 		: "063/22-33-444",
 			"tretman" 	: <Button variant="outline-primary" value="2" onClick={onUsersButtonClick}>Dodaj Tretman</Button>
 		},
 		{
 			"id" 		: "3",
-			"punoIme" 	: "Bojan Slavulj",
+			"punoIme" 	: <Link className="klijentLink" userId="3" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Bojan Slavulj</Link>,
 			"tel" 		: "064/12-34-567",
 			"tretman" 	: <Button variant="outline-primary" value="3" onClick={onUsersButtonClick} >Dodaj Tretman</Button>
 		},
 		{
 			"id" 		: "4",
-			"punoIme" 	: "Stevan Cuk",
+			"punoIme" 	: <Link className="klijentLink" userId="4" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Stevan Cuk</Link>,
 			"tel" 		: "065/98-76-543",
 			"tretman" 	: <Button variant="outline-primary" value="4" onClick={onUsersButtonClick} >Dodaj Tretman</Button>
 		}
@@ -75,11 +76,19 @@ const ListaKlijenata = ({ logo, naslov, parentStateSetter}) => {
 
 	const title = "";
 
+	function goToUsersProfile(data) {
+
+		let userID = data.target.attributes.userId.value;
+
+		console.log(userID);
+
+		localStorage.setItem('userID', userID);
+	  }	
+
 	return (
 		<div className="w-60">
-			<h2> Lista Klijent </h2>
+			<h2> Lista Klijenata </h2>
 			<Table title={title} data={data} columns={columns} options={options}/>
-
 		</div>
 	)
 }

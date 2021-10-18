@@ -72,7 +72,7 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
 	return (
 		<div className="fullScreen">
             <div id="popupContainer">
-                <h2> ID{parentState}: Pedja Pavlovic </h2>
+                <h2> Dodaj Tretman </h2>
 				{/* <Forma elements={elements} /> */}
 				<Form className="mt-5">
 					<h4> ID{parentState}: Pedja Pavlovic </h4>
@@ -101,6 +101,13 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
 							<option value="2">11:00h</option>
 							<option value="3">12:00h</option>
 							<option value="4">15:00h</option>
+						</Form.Select>
+						<Form.Label className="mt-3">Usluge</Form.Label>
+						<Form.Select placeholder="Odaberi Uslugu">
+							<option value="0">Odaberi Uslugu</option>
+							<option value="1">Epilacija</option>
+							<option value="2">Masaza</option>
+							<option value="4">Filer</option>
 						</Form.Select>
 						<Button className="mt-3" variant="primary" type="submit" onClick={onUsersButtonClick}>
 							Submit

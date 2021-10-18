@@ -3,6 +3,7 @@ import TopMenu from './components/TopMenu/TopMenu';
 import NoviKlijent from './components/NoviKlijent/NoviKlijent';
 import ListaKlijenata from './components/ListaKlijenata/ListaKlijenata';
 import Zakazivanje from './components/Zakazivanje/Zakazivanje';
+import KlijentProfile from './components/KlijentProfile/KlijentProfile';
 
 import NoviTretman from './components/NoviTretman/NoviTretman';
 import { useState, useCallback } from 'react';
@@ -43,6 +44,12 @@ function App() {
                 </Route>
                 <Route path="/zakazivanje">
                     <Zakazivanje/>
+                </Route>
+                <Route path="/KlijentProfile">
+                    <KlijentProfile
+                        parentState ={singleViewVisibility}
+                        parentStateSetter ={wrappersetSingleViewVisibility}
+                    />
                 </Route>
                 <Route path="/">
                     <TopMenu/>

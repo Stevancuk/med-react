@@ -49,14 +49,17 @@ const Table = ({ title, data, columns, options}) => {
         data={data}
         columns={columns}
         options={options}
-        cellEditable={{
-        onCellEditApproved: (newValue, oldValue, rowData, columnDef) => {
-          return new Promise((resolve, reject) => {
-              console.log('newValue: ' + newValue);
-              setTimeout(resolve, 4000);
-            });
-          }
-        }}
+        // cellEditable={{
+        // onCellEditApproved: (newValue, oldValue, rowData, columnDef) => {
+        //   return new Promise((resolve, reject) => {
+
+        //       // goToUsersProfile(rowData);
+
+        //       // console.log('newValue: ' + newValue);
+        //       // setTimeout(resolve, 4000);
+        //     });
+        //   }
+        // }}
         icons={tableIcons}
         editable={{
           // isEditable: rowData => rowData.name === 'a', // only name(a) rows would be editable
