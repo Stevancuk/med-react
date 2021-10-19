@@ -11,12 +11,11 @@ import Navbar from './components/Navbar/Navbar';
 >>>>>>> Stashed changes
 import NoviTretman from './components/NoviTretman/NoviTretman';
 import { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/ContactUs/ContactUs';
 // import { Button, ButtonGroup } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 function App() {
