@@ -1,10 +1,10 @@
-import Header from './components/Header/Header';
+// import Header from './components/Header/Header';
 import TopMenu from './components/TopMenu/TopMenu';
 import NoviKlijent from './components/NoviKlijent/NoviKlijent';
 import ListaKlijenata from './components/ListaKlijenata/ListaKlijenata';
 import Zakazivanje from './components/Zakazivanje/Zakazivanje';
 import KlijentProfile from './components/KlijentProfile/KlijentProfile';
-// import Navbar from './components/Navbar/Navbar';
+import MainNavBar from './components/MainNavBar/MainNavBar';
 import NoviTretman from './components/NoviTretman/NoviTretman';
 import { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -33,7 +33,8 @@ function App() {
                 parentStateSetter ={wrappersetSingleViewVisibility}
             /> : ''}
 
-            <Header/>
+            <MainNavBar/>
+            {/*<Header/>*/}
 
             <Switch>
                 <Route path="/noviKlijent">
@@ -53,6 +54,9 @@ function App() {
                         parentState ={singleViewVisibility}
                         parentStateSetter ={wrappersetSingleViewVisibility}
                     />
+                </Route>
+                <Route path="/AboutUs">
+                    <AboutUs/>
                 </Route>
                 <Route path="/">
                     <TopMenu/>

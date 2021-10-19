@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const TopMenu = () => {
+const Home = () => {
 	return (
 		<div id="top-menu">
 			<h2> Osnovni Ekran </h2>
@@ -38,12 +38,12 @@ const TopMenu = () => {
 	)
 }
 
-TopMenu.defaultProps = {
+Home.defaultProps = {
 	// title: 'MED Estetik',
 }
 
-TopMenu.propTypes = {
+Home.propTypes = {
 	// title:  PropTypes.string.isRequried,
 }
 
-export default TopMenu;
+export default Home;

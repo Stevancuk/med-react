@@ -1,23 +1,33 @@
 import PropTypes from 'prop-types';
 import { Navbar,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from '../Home/Home';
+import AboutUs from '../AboutUs/AboutUs';
+import ContactUs from '../ContactUs/ContactUs';
 
 
-const Navbar = () =>{
+const MainNavBar = () =>{
 
 
         return(
             <div>
                 <div className="row">
                     <div className="col-md-12">
-                        <Router>
+                        {/*<Router>*/}
                             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-                                <Navbar.Brand href="#home">React Bootstrap Navbar</Navbar.Brand>
+                                <Navbar.Brand href="#home">
+                                    <Link to="/">React Bootstrap Navbar</Link>
+                                    {/*React Bootstrap Navbar*/}
+                                </Navbar.Brand>
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="mr-auto">
-                                    <Nav.Link href="/">Home</Nav.Link>
-                                    <Nav.Link href="/about-us">Contact Us</Nav.Link>
-                                    <Nav.Link href="/contact-us">About Us</Nav.Link>
+                                    {/*<Nav.Link href="/">Home</Nav.Link>*/}
+                                    <Nav.Link href="/AboutUs">
+                                        {/*<Link to="/AboutUs">About Us</Link>*/}
+                                        Contact Us
+                                    </Nav.Link>
+                                    {/*<Nav.Link href="/contact-us">About Us</Nav.Link>*/}
                                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -33,7 +43,7 @@ const Navbar = () =>{
                                 </Navbar.Collapse>
                             </Navbar>
                             <br />
-                            <Switch>
+                            {/*<Switch>
                                 <Route exact path="/">
                                     <Home />
                                 </Route>
@@ -43,12 +53,12 @@ const Navbar = () =>{
                                 <Route path="/contact-us">
                                     <ContactUs />
                                 </Route>
-                            </Switch>
-                        </Router>
+                            </Switch>*/}
+                        {/*</Router>*/}
                     </div>
                 </div>
             </div>
         )  
 }
 
-export default Navbar;
+export default MainNavBar;
