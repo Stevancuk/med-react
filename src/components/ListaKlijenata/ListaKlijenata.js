@@ -6,13 +6,19 @@ import { Link } from 'react-router-dom';
 
 import { Button } from 'react-bootstrap';
 
-const ListaKlijenata = ({ logo, naslov, parentStateSetter}) => {
+const ListaKlijenata = ({ logo, naslov, parentState, parentStateSetter}) => {
 
 	const [singleViewVisibility, setSingleViewVisibility] = useState(0);
 
 	useEffect(() => {
 		parentStateSetter(singleViewVisibility);
 	}, [parentStateSetter, singleViewVisibility]);
+
+	//Ovo je falilo: Da se promeni state ove komponente kada se promeni parentov state
+	//Tj. kada zatvaranje komponente NoviTretman, promeni App-ov state na 0;
+	useEffect(() => {
+		setSingleViewVisibility(parentState);
+	}, [parentState]);
 
 	const onUsersButtonClick = e => {
 		//pass slider's event value to child's state
@@ -22,25 +28,28 @@ const ListaKlijenata = ({ logo, naslov, parentStateSetter}) => {
 	const data = [
 		{
 			"id" 		: "1",
-			"punoIme" 	: <Link className="klijentLink" userId="1" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Pedja Pavlovic</Link>,
+			//Poshto je <Link> komponenta react-router-dom, ona nema definisan prop 'userid'
+			//Pa mislim da bi morali da napravimo nashu komponentu, koja u sebi sadrzi <Link>
+			//da bi toj nashoj komponenti mogli da definishemo propove po potrebi
+			"punoIme" 	: <Link className="klijentLink" userid="1" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Pedja Pavlovic</Link>,
 			"tel" 		: "066/412-683",
 			"tretman" 	: <Button variant="outline-primary" value="1" onClick={onUsersButtonClick}>Dodaj Tretman</Button>
 		},
 		{
 			"id" 		: "2",
-			"punoIme" 	: <Link className="klijentLink" userId="2" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Ilija Panajotovic</Link>,
+			"punoIme" 	: <Link className="klijentLink" userid="2" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Ilija Panajotovic</Link>,
 			"tel" 		: "063/22-33-444",
 			"tretman" 	: <Button variant="outline-primary" value="2" onClick={onUsersButtonClick}>Dodaj Tretman</Button>
 		},
 		{
 			"id" 		: "3",
-			"punoIme" 	: <Link className="klijentLink" userId="3" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Bojan Slavulj</Link>,
+			"punoIme" 	: <Link className="klijentLink" userid="3" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Bojan Slavulj</Link>,
 			"tel" 		: "064/12-34-567",
 			"tretman" 	: <Button variant="outline-primary" value="3" onClick={onUsersButtonClick} >Dodaj Tretman</Button>
 		},
 		{
 			"id" 		: "4",
-			"punoIme" 	: <Link className="klijentLink" userId="4" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Stevan Cuk</Link>,
+			"punoIme" 	: <Link className="klijentLink" userid="4" onClick={((e) => goToUsersProfile(e, data))} to="/KlijentProfile">Stevan Cuk</Link>,
 			"tel" 		: "065/98-76-543",
 			"tretman" 	: <Button variant="outline-primary" value="4" onClick={onUsersButtonClick} >Dodaj Tretman</Button>
 		}
@@ -78,11 +87,11 @@ const ListaKlijenata = ({ logo, naslov, parentStateSetter}) => {
 
 	function goToUsersProfile(data) {
 
-		let userID = data.target.attributes.userId.value;
+		let userid = data.target.attributes.userid.value;
 
-		console.log(userID);
+		console.log(userid);
 
-		localStorage.setItem('userID', userID);
+		localStorage.setItem('userid', userid);
 	  }	
 
 	return (

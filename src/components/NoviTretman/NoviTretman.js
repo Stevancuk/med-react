@@ -9,8 +9,13 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
     const [singleViewVisibility, setSingleViewVisibility] = useState(parentState);
 
 	useEffect(() => {
-		parentStateSetter(singleViewVisibility);
-	}, [parentStateSetter, singleViewVisibility]);
+
+		return () => {
+		parentStateSetter(0);
+
+		};
+	});
+	// }, [parentStateSetter, singleViewVisibility]);
 
     const onUsersButtonClick = () => {
 		//pass slider's event value to child's state
