@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, setState } from 'react';
 
 import { Form, Button } from 'react-bootstrap';
 import Forma from '../Forma/Forma';
@@ -11,14 +11,14 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
 	useEffect(() => {
 
 		return () => {
-		parentStateSetter(0);
+			parentStateSetter(0);
 
 		};
 	});
-	// }, [parentStateSetter, singleViewVisibility]);
 
-    const onUsersButtonClick = () => {
+    const onUsersButtonClick = (e) => {
 		//pass slider's event value to child's state
+		e.preventDefault();
 		setSingleViewVisibility(0);
 	};
 
@@ -79,7 +79,7 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
             <div id="popupContainer">
                 <h2> Dodaj Tretman </h2>
 				{/* <Forma elements={elements} /> */}
-				<Form className="mt-5">
+				<Form className="mt-5" onSubmit={((e) => onUsersButtonClick(e))}>
 					<h4> ID{parentState}: Pedja Pavlovic </h4>
 					<Form.Group className="mb-3 w-60">
 						<Form.Label>Dostupne Nedelje</Form.Label>
@@ -114,7 +114,7 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
 							<option value="2">Masaza</option>
 							<option value="4">Filer</option>
 						</Form.Select>
-						<Button className="mt-3" variant="primary" type="submit" onClick={onUsersButtonClick}>
+						<Button className="mt-3" variant="primary" type="submit">
 							Submit
 						</Button>
 					</Form.Group>
