@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { Button } from 'react-bootstrap';
 
-const KlijentProfile = ({parentStateSetter}) => {
+const KlijentProfile = ({parentState, parentStateSetter}) => {
 
     let userID = localStorage.getItem('userID');
 
@@ -60,6 +60,10 @@ const KlijentProfile = ({parentStateSetter}) => {
 	useEffect(() => {
 		parentStateSetter(singleViewVisibility);
 	}, [parentStateSetter, singleViewVisibility]);
+
+	useEffect(() => {
+		setSingleViewVisibility(parentState);
+	}, [parentState]);
 
 	const onUsersButtonClick = e => {
 		//pass slider's event value to child's state

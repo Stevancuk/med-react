@@ -12,7 +12,7 @@ const ListaKlijenata = ({ logo, naslov, parentState, parentStateSetter}) => {
 
 	useEffect(() => {
 		parentStateSetter(singleViewVisibility);
-	}, [parentStateSetter, singleViewVisibility]);
+	}, [singleViewVisibility]);
 
 	//Ovo je falilo: Da se promeni state ove komponente kada se promeni parentov state
 	//Tj. kada zatvaranje komponente NoviTretman, promeni App-ov state na 0;
