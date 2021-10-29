@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useCallback, useEffect, setState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import { Form, Button } from 'react-bootstrap';
 import Forma from '../Forma/Forma';
@@ -9,10 +9,8 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
     const [singleViewVisibility, setSingleViewVisibility] = useState(parentState);
 
 	useEffect(() => {
-
 		return () => {
 			parentStateSetter(0);
-
 		};
 	});
 
