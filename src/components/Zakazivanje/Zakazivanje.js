@@ -6,6 +6,7 @@ const Zakazivanje = () => {
 
 	const data = [
 		{
+			// "id"			: 1,
 			"vreme" 		: "8:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -16,6 +17,7 @@ const Zakazivanje = () => {
 			"nedelja" 		: "-",
 		},
 		{
+			// "id"			: 2,
 			"vreme" 		: "9:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -26,6 +28,7 @@ const Zakazivanje = () => {
 			"nedelja" 		: "-",
 		},
 		{
+			// "id"			: 3,
 			"vreme" 		: "10:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -36,6 +39,7 @@ const Zakazivanje = () => {
 			"nedelja" 		: "-",
 		},
 		{
+			// "id"			: 4,
 			"vreme" 		: "11:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -46,6 +50,7 @@ const Zakazivanje = () => {
 			"nedelja" 		: "-",
 		},
 		{
+			// "id"			: 5,
 			"vreme" 		: "12:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -56,6 +61,7 @@ const Zakazivanje = () => {
 			"nedelja" 		: "-",
 		},
 		{
+			// "id"			: 6,
 			"vreme" 		: "13:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -66,6 +72,7 @@ const Zakazivanje = () => {
 			"nedelja" 		: "-",
 		},
 		{
+			// "id"			: 7,
 			"vreme" 		: "14:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -76,6 +83,7 @@ const Zakazivanje = () => {
 			"nedelja" 		: "-",
 		},
 		{
+			// "id"			: 8,
 			"vreme" 		: "15:00",
 			"ponedeljak" 	: "-",
 			"utorak" 		: "-",
@@ -89,37 +97,44 @@ const Zakazivanje = () => {
 
 	const columns = [
 		{
-		  	title: "",
-		  	field: "vreme",
-			editable: "never"
+			id		: 1,
+		  	title 	: "",
+		  	field 	: "vreme",
 		},
 		{
-		  	title: "PON",
-		  	field: "ponedeljak",
+			id		: 2,
+		  	title 	: "PON",
+		  	field 	: "ponedeljak",
 		},
 		{
-		  	title: "UTO",
-		  	field: "utorak",
+			id		: 3,
+		  	title 	: "UTO",
+		  	field 	: "utorak",
 		},
 		{
-		  	title: "SRE",
-		  	field: "sreda",
+			id		: 4,
+		  	title 	: "SRE",
+		  	field 	: "sreda",
 		},
 		{
-		  	title: "CET",
-		  	field: "cetvrtak",
+			id		: 5,
+		  	title 	: "CET",
+		  	field 	: "cetvrtak",
 		},
 		{
-		  	title: "PET",
-		  	field: "petak",
+			id		: 6,
+		  	title 	: "PET",
+		  	field 	: "petak",
 		},
 		{
-		  	title: "SUB",
-		  	field: "subota",
+			id		: 7,
+		  	title 	: "SUB",
+		  	field 	: "subota",
 		},
 		{
-		  	title: "NED",
-		  	field: "nedelja",
+			id		: 8,
+		  	title 	: "NED",
+		  	field 	: "nedelja",
 		},
 	];
 
@@ -134,8 +149,13 @@ const Zakazivanje = () => {
 
 	return (
 		<div className="w-80">
-			<h2>Tabel goes here</h2>
-			<Table title={title} data={data} columns={columns} options={options}/>
+			<h2>Tabela za Zakazivanje</h2>
+			<Table 
+				title={title} 
+				data={data} 
+				columns={columns} 
+				options={options}
+			/>
 		</div>
 	)
 }

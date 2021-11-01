@@ -6,6 +6,8 @@ import Zakazivanje from './components/Zakazivanje/Zakazivanje';
 import KlijentProfile from './components/KlijentProfile/KlijentProfile';
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import NoviTretman from './components/NoviTretman/NoviTretman';
+import Usluge from './components/Usluge/Usluge';
+
 import { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
@@ -13,6 +15,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/ContactUs/ContactUs';
 // import { Button, ButtonGroup } from 'react-bootstrap';
 import './index.css';
+import ZakaziTretman from './components/ZakaziTretman/ZakaziTretman';
 
 function App() {
 
@@ -32,6 +35,11 @@ function App() {
                 parentState ={singleViewVisibility}
                 parentStateSetter ={wrappersetSingleViewVisibility}
             /> : ''}
+
+            {/* {popupTretman ? <ZakaziTretman
+                parentState ={popupTretman}
+                parentStateSetter ={wrappersetPopupTretman}
+            /> : ''} */}
 
             <MainNavBar/>
             {/*<Header/>*/}
@@ -57,6 +65,9 @@ function App() {
                 </Route>
                 <Route path="/AboutUs">
                     <AboutUs/>
+                </Route>
+                <Route path="/Usluge">
+                    <Usluge/>
                 </Route>
                 <Route path="/">
                     <TopMenu/>

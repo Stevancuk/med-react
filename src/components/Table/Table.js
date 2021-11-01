@@ -18,9 +18,12 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
-import { ControlCameraOutlined } from '@material-ui/icons';
+import { Switch, Route } from 'react-router-dom';
 
-const Table = ({ title, data, columns, options}) => {
+import { ControlCameraOutlined } from '@material-ui/icons';
+import { Table as TableDiv, TableHead, TableRow, TableBody, TableCell } from '@material-ui/core';
+
+const Table = ({ title, data, columns, options, parentState, parentStateSetter}) => {
 
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -42,50 +45,120 @@ const Table = ({ title, data, columns, options}) => {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
   };
 
+  function onCellClick (day, time, client) {
+
+    const tret = {
+      'day'     : day, 
+      'time'    : time, 
+      'client'  : client
+    }
+
+    console.log(tret);
+
+    // setPopupTretman(tret);
+  }
+
   return (
     <div>
-      <MaterialTable
-        title={title}
-        data={data}
-        columns={columns}
-        options={options}
-        // cellEditable={{
-        // onCellEditApproved: (newValue, oldValue, rowData, columnDef) => {
-        //   return new Promise((resolve, reject) => {
+      <Switch>
+          <Route path="/noviKlijent">
+              
+          </Route>
+          <Route path="/listaKlijenata">
+            <MaterialTable
+              title={title}
+              data={data}
+              columns={columns}
+              options={options}
+              // cellEditable={{
+              // onCellEditApproved: (newValue, oldValue, rowData, columnDef) => {
+              //   return new Promise((resolve, reject) => {
 
-        //       // goToUsersProfile(rowData);
+              //       // goToUsersProfile(rowData);
 
-        //       // console.log('newValue: ' + newValue);
-        //       // setTimeout(resolve, 4000);
-        //     });
-        //   }
-        // }}
-        icons={tableIcons}
-        editable={{
-          // isEditable: rowData => rowData.name === 'a', // only name(a) rows would be editable
-          // isEditHidden: rowData => rowData.name === 'x',
-          // isDeletable: rowData => rowData.name === 'b', // only name(b) rows would be deletable,
-          // isDeleteHidden: rowData => rowData.name === 'y',
-          // onBulkUpdate: changes => 
-          //   new Promise((resolve, reject) => {
-          //     setTimeout(() => {
-          //       /* setData([...data, newData]); */
+              //       // console.log('newValue: ' + newValue);
+              //       // setTimeout(resolve, 4000);
+              //     });
+              //   }
+              // }}
+              icons={tableIcons}
+              editable={{
+                // isEditable: rowData => rowData.name === 'a', // only name(a) rows would be editable
+                // isEditHidden: rowData => rowData.name === 'x',
+                // isDeletable: rowData => rowData.name === 'b', // only name(b) rows would be deletable,
+                // isDeleteHidden: rowData => rowData.name === 'y',
+                // onBulkUpdate: changes => 
+                //   new Promise((resolve, reject) => {
+                //     setTimeout(() => {
+                //       /* setData([...data, newData]); */
 
-          //       resolve();
-          //     }, 1000);
-          //   }),
-          onRowAddCancelled: rowData => console.log('Row adding cancelled'),
-          onRowUpdateCancelled: rowData => console.log('Row editing cancelled'),
-          onRowAdd: newData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                /* setData([...data, newData]); */
+                //       resolve();
+                //     }, 1000);
+                //   }),
+                onRowAddCancelled: rowData => console.log('Row adding cancelled'),
+                onRowUpdateCancelled: rowData => console.log('Row editing cancelled'),
+                onRowAdd: newData =>
+                  new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                      /* setData([...data, newData]); */
 
-                resolve();
-              }, 1000);
-            }),
-        }}
-      />
+                      resolve();
+                    }, 1000);
+                  }),
+              }}
+            />
+          </Route>
+          <Route path="/KlijentProfile">
+          <MaterialTable
+              title={title}
+              data={data}
+              columns={columns}
+              options={options}
+              icons={tableIcons}
+            />
+          </Route>
+          <Route path="/zakazivanje">
+            <TableDiv>
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                      <TableCell>{column.title}</TableCell>
+                    ))
+                  }
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {
+                  data.map(row => {
+                    return (
+                      <TableRow>
+                        {
+                          columns.map(column => {
+
+                            if (column.title != "") {
+                              return (
+                                <TableCell
+                                  className="pointerCell"
+                                  onClick={(() => onCellClick(column.field, row['vreme'], row[column.field]))}
+                                >
+                                  {row[column.field]}
+                                </TableCell>
+                              )
+                            } else {
+                              return (
+                                <TableCell>{row[column.field]}</TableCell>
+                              )
+                            }
+                          })
+                        }
+                      </TableRow>
+                    )
+                  })
+                }
+              </TableBody>
+            </TableDiv>
+          </Route>
+        </Switch>
     </div>
   )
 }

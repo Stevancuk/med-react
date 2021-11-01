@@ -55,3 +55,11 @@ code {
   float: left;
   margin: 15px;
 }
+.pointerCell:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#usluge_buttons {
+  /* background-color: burlywood; */
+}

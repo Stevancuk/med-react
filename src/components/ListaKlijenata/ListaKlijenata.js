@@ -57,19 +57,23 @@ const ListaKlijenata = ({ logo, naslov, parentState, parentStateSetter}) => {
 
 	const columns = [
 		{
+			id 			: "1",
 		  	title		: "ID",
 		  	field		: "id",
 			editable	: "never"
 		},
 		{
+			id 			: "2",
 			title		: "Ime i Prezime",
 			field		: "punoIme"
 	  	},
 		{
+			id 			: "3",
 			title		: "Br. Telefona",
 			field		: "tel"
 		},
 		{
+			id 			: "4",
 			title		: "Novi Tretman",
 			field		: "tretman",
 			editable 	: 'never'

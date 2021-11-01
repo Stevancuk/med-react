@@ -20,58 +20,6 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
 		setSingleViewVisibility(0);
 	};
 
-	const elements = [
-		[
-			{
-				"type" : "label",
-				"text" : "Dostupne Nedelje"
-			},
-			{
-				"type" 			: "select",
-				"placeholder" 	: "Odaberi Nedelje",
-				"options" 		: [
-					{
-						"value" : 0,
-						"text" 	: "Odaberi Nedelju"
-					},
-					{
-						"value" : 1,
-						"text" 	: "Nedelja 23.08 - 29.08.2021"
-					},
-					{
-						"value" : 2,
-						"text" 	: "Nedelja 29.08 - 05.09.2021"
-					}
-				]
-			},
-			{
-				"type" : "label",
-				"text" : "Dostupni Dani"
-			},
-			{
-				"type" 			: "select",
-				"placeholder" 	: "Odaberi Dan",
-				"options" 		: [
-					{
-						"value" : 0,
-						"text" 	: "Odaberi Dan"
-					},
-					{
-						"value" : 1,
-						"text" 	: "Ponedeljak"
-					},
-					{
-						"value" : 2,
-						"text" 	: "Utorak"
-					}
-				]
-			},
-			{
-				"type" : "button",
-			}
-		]
-	]
-
 	return (
 		<div className="fullScreen">
             <div id="popupContainer">
