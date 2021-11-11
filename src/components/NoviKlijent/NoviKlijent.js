@@ -25,7 +25,7 @@ const NoviKlijent = () => {
 
 	return (
 		<div>
-			<h2> Novi Klijent </h2>
+			<h2 className="text-center"> Novi Klijent </h2>
 
 			<Form className="mb-3 mx-auto col-10 col-sm-8 col-lg-4" onSubmit={handleSubmit}>
 				<Form.Group className="mb-4" controlId="new-client-name">

@@ -149,7 +149,7 @@ const Zakazivanje = () => {
 
 	return (
 		<div className="w-80">
-			<h2>Tabela za Zakazivanje</h2>
+			<h2 className="text-center">Tabela za Zakazivanje</h2>
 			<Table 
 				title={title} 
 				data={data} 

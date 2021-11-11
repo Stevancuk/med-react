@@ -16,7 +16,7 @@ const MainNavBar = () =>{
                         {/*<Router>*/}
                             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
                                 <Navbar.Brand>
-                                    <Link to="/">React Bootstrap Navbar</Link>
+                                    <Link to="/">Home</Link>
                                     {/*React Bootstrap Navbar*/}
                                 </Navbar.Brand>
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -36,10 +36,10 @@ const MainNavBar = () =>{
                                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                                         </NavDropdown>
                                     </Nav>
-                                    <Form>
-                                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                                    <Button variant="outline-success">Search</Button>
-                                    </Form>
+                                    {/*<Form>
+                                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                                        <Button variant="outline-success">Search</Button>
+                                    </Form>*/}
                                 </Navbar.Collapse>
                             </Navbar>
                             <br />

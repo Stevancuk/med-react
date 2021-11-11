@@ -100,7 +100,7 @@ const ListaKlijenata = ({ logo, naslov, parentState, parentStateSetter}) => {
 
 	return (
 		<div className="w-60">
-			<h2> Lista Klijenata </h2>
+			<h2 className="text-center"> Lista Klijenata </h2>
 			<Table title={title} data={data} columns={columns} options={options}/>
 		</div>
 	)

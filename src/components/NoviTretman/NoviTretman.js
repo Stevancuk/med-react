@@ -23,10 +23,10 @@ const NoviTretman = ({ parentState, parentStateSetter }) => {
 	return (
 		<div className="fullScreen">
             <div id="popupContainer">
-                <h2> Dodaj Tretman </h2>
+                <h2 className="text-center"> Dodaj Tretman </h2>
 				{/* <Forma elements={elements} /> */}
 				<Form className="mt-5" onSubmit={((e) => onUsersButtonClick(e))}>
-					<h4> ID{parentState}: Pedja Pavlovic </h4>
+					<h4 className="text-center"> ID{parentState}: Pedja Pavlovic </h4>
 					<Form.Group className="mb-3 w-60">
 						<Form.Label>Dostupne Nedelje</Form.Label>
 						<Form.Select placeholder="Odaberi Nedelju">
